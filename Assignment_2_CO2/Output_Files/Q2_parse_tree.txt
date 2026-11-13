@@ -1,0 +1,35 @@
+Q2: Incorrect Parse Tree Generation and Associativity
+====================================================================
+Input: id + id - id
+
+Ambiguous grammar:
+E -> E + E | E - E | id
+
+Right tree (incorrect):
+E
+ / | \
+id + E
+    / | \
+   id - id
+Grouping: id + (id - id)
+Evaluation: 5 + (6 - 7) = 4
+
+Left tree (correct):
+E
+ / | \
+E - id
+ / | \
+id + id
+Grouping: (id + id) - id
+Evaluation: (5 + 6) - 7 = 4
+
+Issue: the grammar does not specify associativity. As a result, the same input can produce two different parse trees.
+
+Correct design:
+E -> E + T | E - T | T
+T -> id
+This grammar forces left associativity and gives a single parse tree.
+
+Result: correct tree shape is ((id + id) - id), and evaluation is deterministic and accurate.
+
+Conclusion: grammar structure determines tree shape, and associativity must be fixed explicitly to prevent wrong evaluation.

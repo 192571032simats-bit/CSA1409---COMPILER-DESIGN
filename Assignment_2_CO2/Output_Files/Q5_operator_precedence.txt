@@ -1,0 +1,27 @@
+Q5: Operator Precedence Conflict and Grammar Redesign
+====================================================================
+Ambiguous grammar:
+E -> E + E | E * E | id
+Input: id + id * id
+
+Two possible groupings exist:
+1. id + (id * id) -> correct because * has higher precedence than +
+2. (id + id) * id -> wrong because + is evaluated before *
+
+Issue: the grammar gives equal precedence to + and *, so a shift/reduce conflict appears.
+The parser cannot decide whether to reduce or shift when it sees `*` after `E + E`.
+
+Correct precedence-based grammar:
+E -> E + T | T
+T -> T * F | F
+F -> id
+
+This enforces:
+1. `*` is evaluated before `+` because `T` appears one level below `E`.
+2. Left associativity is preserved by left-recursive rules.
+3. The parse tree is unique and evaluation is consistent.
+
+Correct evaluation:
+id + (id * id) = 5 + (6 * 7) = 47
+
+Conclusion: precedence and associativity must be encoded in the grammar or by parser declarations so that the same expression yields one parse tree and one evaluation.

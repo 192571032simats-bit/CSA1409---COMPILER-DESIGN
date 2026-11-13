@@ -1,0 +1,8 @@
+Q1: LL(1) parsing table summary
+
+Non-terminal    a         $
+S               S -> aS'  -
+S'              S -> S    S' -> epsilon
+
+Conflict reason: M[S, a] contained multiple entries in the original grammar.
+Resolution: left factoring and grammar redesign created a single, valid LL(1) table.

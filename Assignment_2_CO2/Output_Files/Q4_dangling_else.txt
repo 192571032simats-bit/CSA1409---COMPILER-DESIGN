@@ -1,0 +1,27 @@
+Q4: Dangling Else Problem and Resolution
+====================================================================
+Grammar:
+S -> if E then S | if E then S else S | a
+
+Input: if E1 then if E2 then a else a
+This creates two valid parse trees:
+1) else belongs to the inner if
+2) else belongs to the outer if
+
+The second tree is the ambiguous one, and the grammar is not conflict-free.
+The parser cannot decide which `if` the `else` should attach to with a single lookahead token.
+
+This is the classic dangling else problem.
+
+Nearest-then rule:
+Every else attaches to the nearest unmatched then.
+Under this rule, the else joins the inner if.
+
+Recommended reconstruction:
+S -> M | U
+M -> if E then M else M | a
+U -> if E then S | if E then M else U
+
+This rule set removes ambiguity and ensures a single, deterministic parse tree.
+
+Conclusion: the dangling else is a shift/reduce conflict in LR parsing and must be resolved by grammar redesign or by the nearest-then convention.

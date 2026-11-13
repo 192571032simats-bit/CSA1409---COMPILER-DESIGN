@@ -1,0 +1,17 @@
+Grammar conflict overview
+
+LL(1) conflict:
+S -> aS | a
+Conflict at M[S, a]
+
+Parse tree conflict:
+E -> E + E | E - E | id
+Ambiguous input: id + id - id
+
+Dangling else:
+S -> if E then S | if E then S else S | a
+Conflict resolved by nearest-then rule.
+
+Operator precedence:
+E -> E + E | E * E | id
+Conflict resolved by splitting precedence levels.

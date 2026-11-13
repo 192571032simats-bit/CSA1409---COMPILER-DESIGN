@@ -1,0 +1,41 @@
+Q1: LL(1) Parsing Table Conflict and FIRST/FOLLOW Analysis
+====================================================================
+Scenario: A student constructs an LL(1) parsing table with multiple entries in one cell.
+Issue: Overlapping FIRST/FOLLOW sets create a deterministic parsing conflict.
+
+Problematic grammar:
+S -> aS | a
+
+FIRST(aS) = {a}
+FIRST(a)  = {a}
+Therefore, M[S, a] contains two entries:
+M[S, a] = { S -> aS, S -> a }
+This is a FIRST/FIRST conflict, so the grammar is not LL(1).
+
+Reason: the syntax analyzer must choose a production using one lookahead token, but the cell has two valid choices.
+Result: deterministic parsing fails, and the parser cannot build a valid predictive table.
+
+Decision: left factoring the grammar produces a valid LL(1) form.
+Left-factored grammar:
+S -> aS'
+S' -> S | epsilon
+
+FIRST(S) = {a}
+FIRST(S') = {a, epsilon}
+FOLLOW(S) = {$}
+FOLLOW(S') = {$}
+FIRST(S) intersect FOLLOW(S') = {a} intersect {$} = empty set
+Hence the grammar satisfies LL(1) conditions.
+
+Parsing table after repair:
+Non-terminal   a      $
+S             S -> aS'
+S'            S' -> S    S' -> epsilon
+
+Input: aa$
+S => aS'
+S' => S => aS'
+S' => epsilon
+ACCEPTED -> deterministic LL(1) parsing succeeds.
+
+Conclusion: overlapping FIRST/FOLLOW sets are the source of the conflict; removing left recursion, left factoring, and ambiguity resolves the issue.
