@@ -1,0 +1,5 @@
+# Supported digest lengths: MD5 (32), SHA-1 (40), SHA-256 (64) hexadecimal characters.
+sha256=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+cve=CVE-2024-3400
+reference=https://example.com/advisories/CVE-2024-3400
+// End of feed sample

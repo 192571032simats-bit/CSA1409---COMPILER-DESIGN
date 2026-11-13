@@ -1,0 +1,2 @@
+line 3: lexical error: IPv4 octets must each be in the range 0..255: 10.0.300.5
+line 4: lexical error: port value must be in the range 0..65535: 65536

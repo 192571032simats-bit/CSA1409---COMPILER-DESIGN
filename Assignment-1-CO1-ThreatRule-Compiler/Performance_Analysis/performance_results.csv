@@ -1,0 +1,7 @@
+benchmark_case,rules,lines,tokens,scanning_time_seconds,timed_repetitions,lexical_errors,throughput_rules_per_second,scanner_mode,process_exit_code
+rules_100,100,100,1800,0.010866300,5,0,9202.765,enhanced,0
+rules_1000,1000,1000,18000,0.010242100,5,0,97636.228,enhanced,0
+rules_10000,10000,10000,180000,0.031461600,5,0,317847.789,enhanced,0
+rules_100000,100000,100000,1800000,0.258319000,5,0,387118.253,enhanced,0
+hash_cve_url_feed,0,5,6,0.010343400,5,3,0.000,original,1
+hash_cve_url_feed,0,5,9,0.007652500,5,0,0.000,enhanced,0

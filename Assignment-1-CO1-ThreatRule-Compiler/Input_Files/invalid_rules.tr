@@ -1,0 +1,4 @@
+RULE invalid_ip IF src_ip == 10.0.300.5 THEN ALERT "bad IP" ;
+RULE invalid_port IF port == 65536 THEN BLOCK "bad port" ;
+RULE invalid_char IF port == 22 @ attempts > 5 THEN ALERT "unexpected character" ;
+RULE broken_string IF attempts > 1 THEN ALERT "unterminated ;

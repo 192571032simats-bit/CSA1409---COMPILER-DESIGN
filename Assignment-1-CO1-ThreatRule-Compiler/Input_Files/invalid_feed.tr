@@ -1,0 +1,4 @@
+bad_url=https://bad..example/path
+good_cve=CVE-2024-3400
+bad_character=@
+good_url=https://example.com/ok

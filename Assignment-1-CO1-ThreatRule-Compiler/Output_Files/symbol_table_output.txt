@@ -1,0 +1,4 @@
+SYMBOL[0]=ssh_attack
+SYMBOL[1]=src_ip
+SYMBOL[2]=port
+SYMBOL[3]=attempts

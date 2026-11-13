@@ -1,0 +1,4 @@
+RULE low IF src_ip == 0.0.0.0 AND port == 0 THEN ALERT "lowest values" ;
+RULE high IF src_ip == 255.255.255.255 AND port == 65535 THEN ALERT "highest values" ;
+RULE bad_ip IF src_ip == 10.0.300.5 THEN ALERT "outside IPv4 range" ;
+RULE bad_port IF port == 65536 THEN ALERT "outside port range" ;

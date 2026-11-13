@@ -1,0 +1,2 @@
+Valid input: Input_Files\valid_rules.tr
+Expected: zero lexical errors; recognizes both IPv4 boundary addresses and ports 0, 22, and 65535.

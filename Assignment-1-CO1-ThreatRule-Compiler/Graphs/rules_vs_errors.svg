@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420">
+<rect width="100%" height="100%" fill="white"/>
+<text x="380.0" y="28" text-anchor="middle" font-family="Arial" font-size="18">Lexical errors vs rules</text>
+<path d="M 70 70 V 350 H 690" fill="none" stroke="#333" stroke-width="2"/>
+<text x="380.0" y="402" text-anchor="middle" font-family="Arial" font-size="14">Rules</text>
+<text x="20" y="210.0" transform="rotate(-90 20 210.0)" text-anchor="middle" font-family="Arial" font-size="14">Lexical errors</text>
+<polyline points="70.0,350.0 225.0,350.0 380.0,350.0 535.0,350.0 690.0,350.0" fill="none" stroke="#155eef" stroke-width="3"/>
+<circle cx="70.0" cy="350.0" r="5" fill="#155eef"/>
+<text x="70.0" y="340.0" text-anchor="middle" font-family="Arial" font-size="11">0</text>
+<text x="70.0" y="372" text-anchor="middle" font-family="Arial" font-size="11">100</text>
+<circle cx="225.0" cy="350.0" r="5" fill="#155eef"/>
+<text x="225.0" y="340.0" text-anchor="middle" font-family="Arial" font-size="11">0</text>
+<text x="225.0" y="372" text-anchor="middle" font-family="Arial" font-size="11">1000</text>
+<circle cx="380.0" cy="350.0" r="5" fill="#155eef"/>
+<text x="380.0" y="340.0" text-anchor="middle" font-family="Arial" font-size="11">0</text>
+<text x="380.0" y="372" text-anchor="middle" font-family="Arial" font-size="11">10000</text>
+<circle cx="535.0" cy="350.0" r="5" fill="#155eef"/>
+<text x="535.0" y="340.0" text-anchor="middle" font-family="Arial" font-size="11">0</text>
+<text x="535.0" y="372" text-anchor="middle" font-family="Arial" font-size="11">100000</text>
+<circle cx="690.0" cy="350.0" r="5" fill="#155eef"/>
+<text x="690.0" y="340.0" text-anchor="middle" font-family="Arial" font-size="11">0</text>
+<text x="690.0" y="372" text-anchor="middle" font-family="Arial" font-size="11">0</text>
+</svg>

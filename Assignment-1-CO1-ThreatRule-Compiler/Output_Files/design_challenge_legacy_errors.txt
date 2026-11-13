@@ -1,0 +1,3 @@
+line 2: lexical error: file hashes are unsupported by the original scanner: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+line 3: lexical error: CVE identifiers are unsupported by the original scanner: CVE-2024-3400
+line 4: lexical error: URLs are unsupported by the original scanner: https://example.com/advisories/CVE-2024-3400

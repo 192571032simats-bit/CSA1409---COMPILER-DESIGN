@@ -1,0 +1,4 @@
+Extended input: Input_Files\hash_cve_url_feed.tr
+Expected in enhanced mode: recognize HASH (64 hex), CVE (CVE-2024-3400), and URL (https://example.com/advisories/CVE-2024-3400). In --legacy mode they are unsupported and reported as lexical errors.
+Recovery input: Input_Files\invalid_feed.tr
+Expected: reject the malformed hostname and @ with line-numbered errors, while still recognizing the valid CVE and final URL.

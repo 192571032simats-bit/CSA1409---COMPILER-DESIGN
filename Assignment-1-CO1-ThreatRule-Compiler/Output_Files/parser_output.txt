@@ -1,0 +1,1 @@
+No parser is integrated in this lexical-analyzer build; syntax is discussed in the report.

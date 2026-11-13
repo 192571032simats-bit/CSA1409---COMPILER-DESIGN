@@ -1,0 +1,2 @@
+line 1: lexical error: URL is outside the documented http(s) syntax: https://bad..example/path
+line 3: lexical error: invalid character: @

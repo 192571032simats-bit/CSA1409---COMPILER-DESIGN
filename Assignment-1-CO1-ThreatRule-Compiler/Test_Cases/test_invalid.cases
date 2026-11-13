@@ -1,0 +1,2 @@
+Invalid input: Input_Files\invalid_rules.tr
+Expected diagnostics: invalid IPv4, port 65536, @, and an unterminated quoted string; scanner continues after each recoverable error.

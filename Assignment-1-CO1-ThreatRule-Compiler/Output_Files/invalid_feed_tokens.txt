@@ -1,0 +1,10 @@
+1:IDENTIFIER:bad_url
+1:ASSIGN:=
+2:IDENTIFIER:good_cve
+2:ASSIGN:=
+2:CVE:CVE-2024-3400
+3:IDENTIFIER:bad_character
+3:ASSIGN:=
+4:IDENTIFIER:good_url
+4:ASSIGN:=
+4:URL:https://example.com/ok

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420">
+<rect width="100%" height="100%" fill="white"/>
+<text x="380.0" y="28" text-anchor="middle" font-family="Arial" font-size="18">Scanning time (seconds) vs rules</text>
+<path d="M 70 70 V 350 H 690" fill="none" stroke="#333" stroke-width="2"/>
+<text x="380.0" y="402" text-anchor="middle" font-family="Arial" font-size="14">Rules</text>
+<text x="20" y="210.0" transform="rotate(-90 20 210.0)" text-anchor="middle" font-family="Arial" font-size="14">Scanning time (seconds)</text>
+<polyline points="70.0,338.2 225.0,338.9 380.0,315.9 535.0,70.0 690.0,341.7" fill="none" stroke="#155eef" stroke-width="3"/>
+<circle cx="70.0" cy="338.2" r="5" fill="#155eef"/>
+<text x="70.0" y="328.2" text-anchor="middle" font-family="Arial" font-size="11">0.0108663</text>
+<text x="70.0" y="372" text-anchor="middle" font-family="Arial" font-size="11">100</text>
+<circle cx="225.0" cy="338.9" r="5" fill="#155eef"/>
+<text x="225.0" y="328.9" text-anchor="middle" font-family="Arial" font-size="11">0.0102421</text>
+<text x="225.0" y="372" text-anchor="middle" font-family="Arial" font-size="11">1000</text>
+<circle cx="380.0" cy="315.9" r="5" fill="#155eef"/>
+<text x="380.0" y="305.9" text-anchor="middle" font-family="Arial" font-size="11">0.0314616</text>
+<text x="380.0" y="372" text-anchor="middle" font-family="Arial" font-size="11">10000</text>
+<circle cx="535.0" cy="70.0" r="5" fill="#155eef"/>
+<text x="535.0" y="60.0" text-anchor="middle" font-family="Arial" font-size="11">0.258319</text>
+<text x="535.0" y="372" text-anchor="middle" font-family="Arial" font-size="11">100000</text>
+<circle cx="690.0" cy="341.7" r="5" fill="#155eef"/>
+<text x="690.0" y="331.7" text-anchor="middle" font-family="Arial" font-size="11">0.0076525</text>
+<text x="690.0" y="372" text-anchor="middle" font-family="Arial" font-size="11">0</text>
+</svg>
