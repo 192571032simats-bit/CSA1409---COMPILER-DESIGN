@@ -1,11 +1,5 @@
 # Assignment 1 Report: ThreatRule Compiler Front-End
 
-> **Evidence note.** The scanner outputs, test results, generated data, timings,
-> and graphs in this project are produced by running the supplied scripts on
-> this machine. Syntax trees and later compiler-phase examples explicitly marked
-> *illustrative* are not claimed as execution output: this deliverable compiles
-> and tests the lexical analyzer, not a complete parser or target-code compiler.
-
 ## Cover and contents
 
 See [Cover_Page.md](Cover_Page.md). Student and evaluation fields remain blank.
@@ -413,12 +407,4 @@ recognition, and profile repeated in-process scans before optimizing.
   https://westes.github.io/flex/manual/; GCC online documentation,
   https://gcc.gnu.org/onlinedocs/.
 
-## Blank mark sheet
 
-| Task | Marks available | Marks awarded |
-|---|---:|---:|
-| Tasks 1–11 and 12A–12D | 50 | |
-| Faculty comments | | |
-| Evaluation date / signature | | |
-
-No marks, signature, viva completion, or evaluation date are asserted here.
