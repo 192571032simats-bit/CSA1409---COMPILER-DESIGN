@@ -1,0 +1,9 @@
+form,expression,height
+left,1+2,2
+left,1+2+3,3
+left,1+2+3+4,4
+left,1+2+3+4+5,5
+right,1+(2+(3+(4+5))),8
+right,1+(2+(3+4)),6
+right,1+(2+3),4
+right,1+2,2

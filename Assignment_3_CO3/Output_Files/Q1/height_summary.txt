@@ -1,0 +1,9 @@
+Left-recursive and right-recursive height comparison
+left | 1+2 | height=2
+left | 1+2+3 | height=3
+left | 1+2+3+4 | height=4
+left | 1+2+3+4+5 | height=5
+right | 1+(2+(3+(4+5))) | height=8
+right | 1+(2+(3+4)) | height=6
+right | 1+(2+3) | height=4
+right | 1+2 | height=2

@@ -1,0 +1,4 @@
+Q5 – AST generation
+Expression: a + b * (c - d)
+AST node count: 10
+AST root: bin_op +

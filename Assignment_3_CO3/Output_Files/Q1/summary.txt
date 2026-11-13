@@ -1,0 +1,4 @@
+Q1 – Synthesized attributes and annotated parse tree
+3 * (4 + 5) - 6 / 2 = 24
+The expression is evaluated using bottom-up synthesized values.
+The parser preserves precedence and left associativity.

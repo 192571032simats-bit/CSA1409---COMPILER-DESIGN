@@ -1,0 +1,4 @@
+Q3 – Dependency graph and topological evaluation
+Expression graph order: F1.val, F2.val, OP1, OP2, T.val, E.val
+Declaration graph order: T.type, L.in, id1, id2, D.type
+The order obeys dependency constraints and is valid for topological evaluation.

@@ -1,0 +1,5 @@
+declaration,status,table
+"float a, b, c",valid,"{'a': 'float', 'b': 'float', 'c': 'float'}"
+"int x, y",valid,"{'a': 'float', 'b': 'float', 'c': 'float', 'x': 'int', 'y': 'int'}"
+int a,valid,"{'a': 'float', 'b': 'float', 'c': 'float', 'x': 'int', 'y': 'int'}"
+float b,valid,"{'a': 'float', 'b': 'float', 'c': 'float', 'x': 'int', 'y': 'int'}"

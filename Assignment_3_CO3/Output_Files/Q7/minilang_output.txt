@@ -1,0 +1,7 @@
+Q7 – MiniLang translator
+Symbol table: {'a': 'int', 'b': 'float'}
+  a : int
+  b : float
+  a = 3 + 4
+  b = 2.5
+  print a

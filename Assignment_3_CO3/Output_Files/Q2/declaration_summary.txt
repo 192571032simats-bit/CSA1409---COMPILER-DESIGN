@@ -1,0 +1,5 @@
+Q2 – Inherited declaration analysis
+float a, b, c -> table={'a': 'float', 'b': 'float', 'c': 'float'}
+int x, y -> table={'a': 'float', 'b': 'float', 'c': 'float', 'x': 'int', 'y': 'int'}
+int a -> table={'a': 'float', 'b': 'float', 'c': 'float', 'x': 'int', 'y': 'int'}
+float b -> table={'a': 'float', 'b': 'float', 'c': 'float', 'x': 'int', 'y': 'int'}

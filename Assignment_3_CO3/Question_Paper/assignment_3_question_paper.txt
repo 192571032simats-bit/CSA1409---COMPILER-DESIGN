@@ -1,0 +1,3 @@
+Compiler Design Assignment 3 (CO3)
+
+This file records the assignment brief and the project implementation scope for syntax-directed translation and attribute grammars.

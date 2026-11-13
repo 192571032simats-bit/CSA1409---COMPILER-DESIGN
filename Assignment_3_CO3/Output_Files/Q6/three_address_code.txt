@@ -1,0 +1,10 @@
+Q6 – Advanced attributes and three-address code
+3 + 4 * 5:
+  t1 = 4 * 5
+  t2 = 3 + t1
+a + b * c:
+  t1 = b * c
+  t2 = a + t1
+x - y / z:
+  t1 = y / z
+  t2 = x - t1
