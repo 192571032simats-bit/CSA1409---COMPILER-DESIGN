@@ -13,16 +13,6 @@ LEX for Federated Cyber Threat Detection in Security Operations Centers
 
 | Student information | Entry |
 |---|---|
-| Student name | ______________________________ |
-| Register number | ______________________________ |
-| Class / section | ______________________________ |
-| Submission date | ______________________________ |
+| Student name | E.Ragul |
+| Register number |192571032|
 
-| Evaluation (faculty use) | Entry |
-|---|---|
-| Marks awarded | __________ / 50 |
-| Evaluation date | ______________________________ |
-| Faculty signature | ______________________________ |
-| Student signature | ______________________________ |
-
-All student and evaluation fields are intentionally editable and blank.
