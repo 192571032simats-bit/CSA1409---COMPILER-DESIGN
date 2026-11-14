@@ -12,9 +12,6 @@ This project is a clean restart of the original Assignment 2 work based on the o
 - `Execution_Evidence/` – runtime logs and notes
 - `Parsing_Tables/` – LL(1) / LR-style table examples
 - `Performance_Analysis/` – not required for this paper; retained only if needed
-- `Documentation/` – traceability and audit files
-- `Word_Report/` – generated final Word document
-- `PDF_Report/` – generated PDF report
 
 ## How to run
 
