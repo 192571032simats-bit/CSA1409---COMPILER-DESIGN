@@ -1,0 +1,7 @@
+t1 = a + b
+t2 = c + d
+t3 = e + f
+t4 = g + h
+t5 = t1 + t2
+t6 = t3 + t4
+result = t5 + t6

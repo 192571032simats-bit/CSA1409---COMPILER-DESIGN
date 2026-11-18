@@ -1,0 +1,18 @@
+straight_line: PASS
+  Manual: {'manual_reaching': 'At result, the latest definitions are d(a), d(b)', 'manual_live': 'a and b are live at their defining/using points'}
+  Generated: blocks=1, iterations=3
+  original={'a': 2, 'b': 5, 'result': 5}
+  optimized={'b': 5, 'result': 5}
+  optimized IR: b = 2 + 3; result = b
+if_else: PASS
+  Manual: {'manual_reaching': 'At result, definitions of b in both branches reach', 'manual_live': 'b is live at L3 merge; a is live at branch test'}
+  Generated: blocks=4, iterations=4
+  original={'a': 1, 'b': 5, 'result': 5}
+  optimized={'a': 1, 'b': 5, 'result': 5}
+  optimized IR: a = 1; ifFalse a goto L2; b = 5; goto L3; L2:; b = 7; L3:; result = b
+loop: PASS
+  Manual: {'manual_reaching': 'The initial i=3 and i=i-1 definitions reach the loop header', 'manual_live': 'i is live in the loop increment and exit test'}
+  Generated: blocks=4, iterations=6
+  original={'i': 0, 'result': 0}
+  optimized={'i': 0, 'result': 0}
+  optimized IR: i = 3; L1:; i = i - 1; ifFalse i goto L2; goto L1; L2:; result = i

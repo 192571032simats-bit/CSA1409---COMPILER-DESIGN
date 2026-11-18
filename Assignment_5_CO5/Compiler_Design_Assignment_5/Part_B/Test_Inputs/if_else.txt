@@ -1,0 +1,8 @@
+a = 1
+ifFalse a goto L2
+b = 5
+goto L3
+L2:
+b = 7
+L3:
+result = b

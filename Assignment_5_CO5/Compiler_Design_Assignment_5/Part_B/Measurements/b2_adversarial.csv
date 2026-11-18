@@ -1,0 +1,4 @@
+block,ir_instructions,target_instructions,loads,stores,spills,peak_live_values,estimated_cost
+block_a,7,30,8,15,13,14,45
+block_b,7,40,13,20,18,14,60
+block_b_reordered,7,42,14,21,19,14,63

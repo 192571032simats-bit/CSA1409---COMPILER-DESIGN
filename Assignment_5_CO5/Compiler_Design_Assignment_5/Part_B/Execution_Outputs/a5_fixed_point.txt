@@ -1,0 +1,8 @@
+A5 reaching-definitions fixed-point trace
+GEN and KILL sets:
+B0: GEN={(0, 0)}, KILL={(1, 1)}, IN=set(), OUT={(0, 0)}
+B1: GEN={(1, 1)}, KILL={(0, 0)}, IN={(1, 1), (0, 0)}, OUT={(1, 1)}
+B2: GEN=set(), KILL=set(), IN={(1, 1)}, OUT={(1, 1)}
+B3: GEN={(3, 1)}, KILL=set(), IN={(1, 1)}, OUT={(3, 1), (1, 1)}
+Iterations: 3
+Set operations: 33

@@ -1,0 +1,4 @@
+level,instructions_before,instructions_after,target_cost,operations,compile_effort
+0,6,6,16,4,none
+1,6,6,16,3,local
+2,6,2,6,1,local + global

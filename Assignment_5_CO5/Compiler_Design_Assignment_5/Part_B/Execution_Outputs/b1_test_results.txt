@@ -1,0 +1,5 @@
+loop: original={'a': 2, 'c': 0, 'result': 0}, PASS/FAIL checked against target
+redefinition: original={'a': 15, 'b': 30, 'result': 30}, PASS/FAIL checked against target
+straight_line: original={'a': 2, 't1': 30, 't2': 90, 'result': 90}, PASS/FAIL checked against target
+single_instruction: original={'a': 2, 'result': 42}, PASS/FAIL checked against target
+jump_to_last: original={'a': 2, 'result': 7}, PASS/FAIL checked against target

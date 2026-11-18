@@ -1,0 +1,4 @@
+program,blocks,iterations,set_operations,match
+straight,1,3,6,PASS
+if_else,4,4,44,PASS
+loop,4,6,66,PASS
