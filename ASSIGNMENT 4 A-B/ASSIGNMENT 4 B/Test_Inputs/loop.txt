@@ -1,0 +1,3 @@
+for i from 1 to 10 step 1 do
+  i = i + 1;
+end for

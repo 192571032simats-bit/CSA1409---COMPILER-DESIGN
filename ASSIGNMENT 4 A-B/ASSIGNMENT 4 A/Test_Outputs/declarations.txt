@@ -1,0 +1,6 @@
+100: T1(int) = b + 2
+101: a = T1(int)
+102: T2(int) = a * 3
+103: T3(float) = inttofloat T2(int)
+104: c = T3(float)
+105: HALT

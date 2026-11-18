@@ -1,1 +1,2 @@
 # No dependencies can be listed because no Assignment 4B source code is available.
+# Standard library only; no third-party Python packages are required.

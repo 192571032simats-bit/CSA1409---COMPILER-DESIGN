@@ -18,31 +18,14 @@ Compiler Engineering: Implement, Test, Debug and Optimise Intermediate Code Gene
 - `Measurements/` - Performance or optimisation measurements.
 - `Diagrams/` - Assignment diagrams.
 
-## Missing files
+## Run available code
 
-No matching existing Assignment 4B reports or Assignment 4B implementation files were found in the workspace. Existing Assignment 5 Unit V files were not copied because they do not belong to Assignment 4B.
+From `Source_Code/`:
 
-Missing report files:
+```bat
+python program.py
+python measure.py
+python final_verification.py
+```
 
-- `Report/Assignment_4B_CO4_Report.docx`
-- `Report/Assignment_4B_CO4_Report.pdf`
-
-Missing source files:
-
-- `Source_Code/ir.py`
-- `Source_Code/codegen.py`
-- `Source_Code/dag.py`
-- `Source_Code/dataflow.py`
-- `Source_Code/opt.py`
-- `Source_Code/program.py`
-- `Source_Code/measure.py`
-- `Source_Code/final_verification.py`
-
-Missing diagram files:
-
-- `Diagrams/control_flow_graph.png`
-- `Diagrams/register_allocation.png`
-- `Diagrams/dataflow_scalability.png`
-- `Diagrams/optimization_levels.png`
-
-No test inputs, test outputs, or measurements were identified for this assignment. Therefore, there is no available Assignment 4B code to run.
+The implementation provides intermediate code generation, array addressing, DAG and constant optimisations, reaching-definition analysis, measurements, and verification.

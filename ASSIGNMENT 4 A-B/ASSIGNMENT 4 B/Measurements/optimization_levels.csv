@@ -1,0 +1,4 @@
+level,instruction_count,average_seconds
+0,10000,0.000063
+1,10000,0.013247
+2,10000,0.016832

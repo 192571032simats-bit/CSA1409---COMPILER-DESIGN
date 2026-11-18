@@ -18,31 +18,13 @@ Compiler Design Unit IV, CO4: Intermediate Code Generation - intermediate langua
 - `Measurements/` - Performance or implementation measurements.
 - `Diagrams/` - Assignment diagrams.
 
-## Missing files
+## Run available code
 
-No matching existing Assignment 4A reports or source files were found in the workspace.
+From `Source_Code/`:
 
-Missing report files:
+```bat
+python mini_compiler.py ..\Test_Inputs\declarations.txt
+python -m unittest discover
+```
 
-- `Report/Assignment_4A_CO4_Report.docx`
-- `Report/Assignment_4A_CO4_Report.pdf`
-
-Missing source files:
-
-- `Source_Code/symtab.py`
-- `Source_Code/ir.py`
-- `Source_Code/expr.py`
-- `Source_Code/backpatch.py`
-- `Source_Code/switch.py`
-- `Source_Code/calls.py`
-- `Source_Code/mini_compiler.py`
-- `Source_Code/interpreter.py`
-
-Missing diagram files:
-
-- `Diagrams/compiler_pipeline.png`
-- `Diagrams/storage_layout.png`
-- `Diagrams/backpatching_flow.png`
-- `Diagrams/activation_record.png`
-
-No test inputs, test outputs, or measurements were identified for this assignment. Therefore, there is no available Assignment 4A code to run.
+The modules provide symbol-table declarations, typed expression generation, backpatching, switch dispatch, procedure calls, mini-compiler integration, and interpretation. A sample input and generated output are included under `Test_Inputs/` and `Test_Outputs/`.
