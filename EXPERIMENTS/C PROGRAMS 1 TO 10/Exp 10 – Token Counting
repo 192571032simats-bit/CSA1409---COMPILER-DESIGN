@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main()
+{
+    char str[500];
+    int i, count = 0, inToken = 0;
+
+    printf("Enter a statement: ");
+    fgets(str, sizeof(str), stdin);
+
+    for(i = 0; str[i] != '\0'; i++)
+    {
+        if(!isspace((unsigned char)str[i]))
+        {
+            if(!inToken)
+            {
+                count++;
+                inToken = 1;
+            }
+        }
+        else
+        {
+            inToken = 0;
+        }
+    }
+
+    printf("Total Number of Tokens = %d", count);
+
+    return 0;
+}

@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char op[5];
+
+    printf("Enter an operator: ");
+    scanf("%4s", op);
+
+    if(strcmp(op, "+") == 0 || strcmp(op, "-") == 0 ||
+       strcmp(op, "*") == 0 || strcmp(op, "/") == 0 ||
+       strcmp(op, "%") == 0)
+        printf("Arithmetic Operator");
+    else if(strcmp(op, "==") == 0 || strcmp(op, "!=") == 0 ||
+            strcmp(op, "<") == 0 || strcmp(op, ">") == 0 ||
+            strcmp(op, "<=") == 0 || strcmp(op, ">=") == 0)
+        printf("Relational Operator");
+    else if(strcmp(op, "&&") == 0 || strcmp(op, "||") == 0 ||
+            strcmp(op, "!") == 0)
+        printf("Logical Operator");
+    else if(strcmp(op, "=") == 0 || strcmp(op, "+=") == 0 ||
+            strcmp(op, "-=") == 0)
+        printf("Assignment Operator");
+    else
+        printf("Unknown Operator");
+
+    return 0;
+}

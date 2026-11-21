@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main()
+{
+    char op;
+
+    printf("Enter an operator: ");
+    scanf(" %c", &op);
+
+    switch(op)
+    {
+        case '+':
+            printf("Addition Operator");
+            break;
+        case '-':
+            printf("Subtraction Operator");
+            break;
+        case '*':
+            printf("Multiplication Operator");
+            break;
+        case '/':
+            printf("Division Operator");
+            break;
+        case '%':
+            printf("Modulus Operator");
+            break;
+        default:
+            printf("Not an Arithmetic Operator");
+    }
+
+    return 0;
+}

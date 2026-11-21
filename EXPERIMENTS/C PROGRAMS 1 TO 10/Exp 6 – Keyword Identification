@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char word[30];
+
+    char keywords[32][10] = {
+        "auto", "break", "case", "char", "const",
+        "continue", "default", "do", "double", "else",
+        "enum", "extern", "float", "for", "goto",
+        "if", "int", "long", "register", "return",
+        "short", "signed", "sizeof", "static", "struct",
+        "switch", "typedef", "union", "unsigned",
+        "void", "volatile", "while"
+    };
+
+    int i, flag = 0;
+
+    printf("Enter a word: ");
+    scanf("%29s", word);
+
+    for(i = 0; i < 32; i++)
+    {
+        if(strcmp(word, keywords[i]) == 0)
+        {
+            flag = 1;
+            break;
+        }
+    }
+
+    if(flag)
+        printf("Keyword");
+    else
+        printf("Not a Keyword");
+
+    return 0;
+}
