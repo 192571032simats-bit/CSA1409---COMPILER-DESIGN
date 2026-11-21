@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <math.h>
+
+int main()
+{
+    char str[100];
+    char *end;
+    double num;
+
+    printf("Enter a floating point number: ");
+    scanf("%99s", str);
+
+    errno = 0;
+    num = strtod(str, &end);
+
+    if(end != str && *end == '\0' &&
+       errno != ERANGE && isfinite(num))
+        printf("Valid Floating Point Number");
+    else
+        printf("Invalid Floating Point Number");
+
+    return 0;
+}

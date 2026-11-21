@@ -1,0 +1,112 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+char lhs[20], rhs[20][30];
+int n, first[26][128];
+
+void add(int a, char c)
+{
+    first[a][(unsigned char)c] = 1;
+}
+
+int main()
+{
+    int i, j, k, changed;
+
+    printf("Enter number of productions: ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+    {
+        char line[100], *token;
+
+        printf("Enter production: ");
+        scanf("%99s", line);
+
+        lhs[i] = line[0];
+        token = strtok(line + 2, "|");
+
+        while(token != NULL)
+        {
+            strcpy(rhs[i], token);
+            i++;
+            token = strtok(NULL, "|");
+        }
+        i--;
+    }
+
+    do
+    {
+        changed = 0;
+
+        for(i = 0; i < n; i++)
+        {
+            int a = lhs[i] - 'A';
+
+            for(j = 0; rhs[i][j] != '\0'; j++)
+            {
+                char c = rhs[i][j];
+
+                if(c == '#')
+                {
+                    if(!first[a]['#'])
+                    {
+                        add(a, '#');
+                        changed = 1;
+                    }
+                    break;
+                }
+
+                if(!isupper((unsigned char)c))
+                {
+                    if(!first[a][(unsigned char)c])
+                    {
+                        add(a, c);
+                        changed = 1;
+                    }
+                    break;
+                }
+
+                k = c - 'A';
+
+                for(int x = 0; x < 128; x++)
+                {
+                    if(x != '#' && first[k][x] && !first[a][x])
+                    {
+                        add(a, x);
+                        changed = 1;
+                    }
+                }
+
+                if(!first[k]['#'])
+                    break;
+
+                if(rhs[i][j + 1] == '\0' && !first[a]['#'])
+                {
+                    add(a, '#');
+                    changed = 1;
+                }
+            }
+        }
+    } while(changed);
+
+    printf("\nFIRST SETS:\n");
+
+    for(i = 0; i < n; i++)
+    {
+        int a = lhs[i] - 'A';
+
+        printf("FIRST(%c) = { ", lhs[i]);
+
+        for(j = 0; j < 128; j++)
+        {
+            if(first[a][j])
+                printf("%c ", j);
+        }
+
+        printf("}\n");
+    }
+
+    return 0;
+}

@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <errno.h>
+#include <limits.h>
+
+int main()
+{
+    char str[100];
+    char *end;
+    long num;
+
+    printf("Enter an integer: ");
+    scanf("%99s", str);
+
+    errno = 0;
+    num = strtol(str, &end, 10);
+
+    if(end != str && *end == '\0' &&
+       errno != ERANGE && num >= INT_MIN && num <= INT_MAX)
+        printf("Valid Integer");
+    else
+        printf("Invalid Integer");
+
+    return 0;
+}

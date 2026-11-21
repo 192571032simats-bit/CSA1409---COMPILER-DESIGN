@@ -1,0 +1,241 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+char lhs[20], rhs[40][30];
+int n;
+int first[26][128], follow[26][128];
+
+int main()
+{
+    int i, j, k, changed;
+
+    printf("Enter number of productions: ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+    {
+        char line[100], *token;
+
+        printf("Enter production: ");
+        scanf("%99s", line);
+
+        lhs[i] = line[0];
+        token = strtok(line + 2, "|");
+
+        while(token != NULL)
+        {
+            strcpy(rhs[i], token);
+            i++;
+            token = strtok(NULL, "|");
+        }
+        i--;
+    }
+
+    do
+    {
+        changed = 0;
+
+        for(i = 0; i < n; i++)
+        {
+            int a = lhs[i] - 'A';
+
+            for(j = 0; rhs[i][j]; j++)
+            {
+                char c = rhs[i][j];
+
+                if(c == '#')
+                    continue;
+
+                if(!isupper((unsigned char)c))
+                {
+                    first[a][(unsigned char)c] = 1;
+                    continue;
+                }
+
+                int b = c - 'A';
+                int nullable = 1;
+
+                for(k = j + 1; rhs[i][k]; k++)
+                {
+                    char next = rhs[i][k];
+
+                    if(next == '#')
+                        continue;
+
+                    if(!isupper((unsigned char)next))
+                    {
+                        if(!first[b][(unsigned char)next])
+                        {
+                            first[b][(unsigned char)next] = 1;
+                            changed = 1;
+                        }
+
+                        nullable = 0;
+                        break;
+                    }
+
+                    int d = next - 'A';
+
+                    for(int x = 0; x < 128; x++)
+                    {
+                        if(x != '#' && first[d][x] && !first[b][x])
+                        {
+                            first[b][x] = 1;
+                            changed = 1;
+                        }
+                    }
+
+                    if(!first[d]['#'])
+                    {
+                        nullable = 0;
+                        break;
+                    }
+                }
+
+                if(nullable)
+                {
+                    for(int x = 0; x < 128; x++)
+                    {
+                        if(follow[a][x] && !follow[b][x])
+                        {
+                            follow[b][x] = 1;
+                            changed = 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        for(i = 0; i < n; i++)
+        {
+            int a = lhs[i] - 'A';
+
+            for(j = 0; rhs[i][j]; j++)
+            {
+                if(!isupper((unsigned char)rhs[i][j]))
+                    continue;
+
+                int b = rhs[i][j] - 'A';
+                int nullable = 1;
+
+                for(k = j + 1; rhs[i][k]; k++)
+                {
+                    char c = rhs[i][k];
+
+                    if(c == '#')
+                        continue;
+
+                    if(!isupper((unsigned char)c))
+                    {
+                        if(!follow[b][(unsigned char)c])
+                        {
+                            follow[b][(unsigned char)c] = 1;
+                            changed = 1;
+                        }
+
+                        nullable = 0;
+                        break;
+                    }
+
+                    int d = c - 'A';
+
+                    for(int x = 0; x < 128; x++)
+                    {
+                        if(x != '#' && first[d][x] && !follow[b][x])
+                        {
+                            follow[b][x] = 1;
+                            changed = 1;
+                        }
+                    }
+
+                    if(!first[d]['#'])
+                    {
+                        nullable = 0;
+                        break;
+                    }
+                }
+
+                if(nullable)
+                {
+                    for(int x = 0; x < 128; x++)
+                    {
+                        if(follow[a][x] && !follow[b][x])
+                        {
+                            follow[b][x] = 1;
+                            changed = 1;
+                        }
+                    }
+                }
+            }
+        }
+
+    } while(changed);
+
+    follow[lhs[0] - 'A']['$'] = 1;
+
+    do
+    {
+        changed = 0;
+
+        for(i = 0; i < n; i++)
+        {
+            int a = lhs[i] - 'A';
+
+            for(j = 0; rhs[i][j]; j++)
+            {
+                if(!isupper((unsigned char)rhs[i][j]))
+                    continue;
+
+                int b = rhs[i][j] - 'A';
+
+                for(k = j + 1; rhs[i][k]; k++)
+                {
+                    char c = rhs[i][k];
+
+                    if(c == '#')
+                        continue;
+
+                    if(!isupper((unsigned char)c))
+                        break;
+
+                    int d = c - 'A';
+
+                    if(!first[d]['#'])
+                        break;
+                }
+
+                if(rhs[i][k] == '\0')
+                {
+                    for(int x = 0; x < 128; x++)
+                    {
+                        if(follow[a][x] && !follow[b][x])
+                        {
+                            follow[b][x] = 1;
+                            changed = 1;
+                        }
+                    }
+                }
+            }
+        }
+    } while(changed);
+
+    printf("\nFOLLOW SETS:\n");
+
+    for(i = 0; i < n; i++)
+    {
+        int a = lhs[i] - 'A';
+
+        printf("FOLLOW(%c) = { ", lhs[i]);
+
+        for(j = 0; j < 128; j++)
+        {
+            if(follow[a][j])
+                printf("%c ", j);
+        }
+
+        printf("}\n");
+    }
+
+    return 0;
+}

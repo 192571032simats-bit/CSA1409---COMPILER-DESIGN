@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char nt, alpha[50], beta[50];
+
+    printf("Enter non-terminal: ");
+    scanf(" %c", &nt);
+
+    printf("Enter recursive part (alpha): ");
+    scanf("%49s", alpha);
+
+    printf("Enter non-recursive part (beta): ");
+    scanf("%49s", beta);
+
+    if(alpha[0] == nt)
+    {
+        printf("\nAfter eliminating left recursion:\n");
+        printf("%c -> %s%c'\n", nt, beta, nt);
+        printf("%c' -> %s%c' | #\n", nt, alpha + 1, nt);
+    }
+    else
+    {
+        printf("No left recursion found.");
+    }
+
+    return 0;
+}

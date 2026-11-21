@@ -1,0 +1,129 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+char *p;
+
+double expression();
+double term();
+double factor();
+
+double factor()
+{
+    double value;
+
+    while(isspace((unsigned char)*p))
+        p++;
+
+    if(*p == '(')
+    {
+        p++;
+        value = expression();
+
+        while(isspace((unsigned char)*p))
+            p++;
+
+        if(*p == ')')
+            p++;
+
+        return value;
+    }
+
+    if(*p == '-')
+    {
+        p++;
+        return -factor();
+    }
+
+    value = strtod(p, &p);
+
+    return value;
+}
+
+double term()
+{
+    double value = factor();
+
+    while(1)
+    {
+        while(isspace((unsigned char)*p))
+            p++;
+
+        if(*p == '*')
+        {
+            p++;
+            value *= factor();
+        }
+        else if(*p == '/')
+        {
+            p++;
+
+            double b = factor();
+
+            if(b == 0)
+            {
+                printf("Division by zero error");
+                exit(1);
+            }
+
+            value /= b;
+        }
+        else
+            break;
+    }
+
+    return value;
+}
+
+double expression()
+{
+    double value = term();
+
+    while(1)
+    {
+        while(isspace((unsigned char)*p))
+            p++;
+
+        if(*p == '+')
+        {
+            p++;
+            value += term();
+        }
+        else if(*p == '-')
+        {
+            p++;
+            value -= term();
+        }
+        else
+            break;
+    }
+
+    return value;
+}
+
+int main()
+{
+    char input[100];
+    double result;
+
+    printf("Enter arithmetic expression: ");
+    fgets(input, sizeof(input), stdin);
+
+    p = input;
+
+    result = expression();
+
+    while(isspace((unsigned char)*p))
+        p++;
+
+    if(*p != '\0')
+    {
+        printf("Invalid Expression");
+        return 1;
+    }
+
+    printf("\nAfter Constant Folding: ");
+    printf("%.2f", result);
+
+    return 0;
+}
