@@ -1,0 +1,20 @@
+Q4: SLR ACTION/GOTO table (educational summary)
+===================================================
+
+Grammar:
+S -> a A d | b A e | a B e | b B d
+A -> c
+B -> c
+
+FOLLOW(A) = {d,e}
+FOLLOW(B) = {d,e}
+
+Action summary:
+- On a: shift into state 1
+- On b: shift into state 2
+- On c: shift into state 3
+- On d after A: reduce A -> c or accept complete S if stack matches a A d
+- On e after B: reduce B -> c or accept complete S if stack matches a B e
+
+Non-SLR conflict demonstration:
+If the grammar is not split by FOLLOW sets, the same state could allow both reduce and shift under the same lookahead. In SLR, FOLLOW-based restrictions are used to avoid this.

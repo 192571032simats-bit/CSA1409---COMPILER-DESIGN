@@ -1,0 +1,13 @@
+Q5: Error productions
+======================
+
+Example grammar fragments:
+E -> E + T | T
+E -> E + error
+T -> T * F | F
+T -> error
+
+Error productions allow the parser to continue after a lexical anomaly by replacing one bad phrase with error and resuming at a valid synchronizing token.
+
+Message example: "operand expected before *"
+Cascading messages are reduced because the parser resumes after a single, well-placed recovery point.

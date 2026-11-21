@@ -1,0 +1,41 @@
+Q4: Augmented grammar, LR(0) items and DFA
+============================================
+
+Augmented grammar:
+S' -> S
+S -> a A d | b A e | a B e | b B d
+A -> c
+B -> c
+
+Closure and GOTO reasoning:
+I0 = {[S' -> .S], [S -> .a A d], [S -> .b A e], [S -> .a B e], [S -> .b B d]}
+I1 = goto(I0, a) = {[S -> a . A d], [S -> a . B e], [A -> .c], [B -> .c]}
+I2 = goto(I0, b) = {[S -> b . A e], [S -> b . B d], [A -> .c], [B -> .c]}
+I3 = goto(I1, c) = {[A -> c .], [B -> c .]}
+
+State summary:
+- I0: start state
+- I1: after a
+- I2: after b
+- I3: after c
+
+This is the LR(0) DFA skeleton. A full implementation would continue closure and goto until all states are discovered.
+
+SLR table reasoning:
+FOLLOW(S) = {$}
+FOLLOW(A) = {d, e}
+FOLLOW(B) = {d, e}
+
+ACTION/GOTO table (reduced form):
+State | a | b | c | d | e | $ | A | B | S
+----- |---|---|---|---|---|---|---|---|---
+0     | s1| s2|  |  |  |  |  |  | 1
+1     |  |  | s3|  |  |  | 4| 5|  
+2     |  |  | s3|  |  |  | 6| 7|  
+3     |  |  |  | rA| rB|  |  |  |  
+4     |  |  |  | s8|  |  |  |  |  
+5     |  |  |  |  | s9|  |  |  |  
+6     |  |  |  |  |  |  |  |  |  
+7     |  |  |  |  |  |  |  |  |  
+
+This table is an educational SLR-style demonstration and not a generated parser for a production compiler.

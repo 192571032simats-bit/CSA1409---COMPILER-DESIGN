@@ -1,0 +1,11 @@
+Q4 invalid trace
+=================
+Input: a c e
+
+Stack        Input      Action
+0            a c e $    shift a
+0 a 1        c e $      shift c
+0 a 1 c 3    e $        reduce A -> c
+0 a 1 A      e $        shift ???
+No valid SLR action for e after A; parse fails.
+Error detected at lookahead e.

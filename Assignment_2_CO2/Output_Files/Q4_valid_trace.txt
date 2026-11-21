@@ -1,0 +1,11 @@
+Q4 valid trace
+===============
+Input: a c d
+
+Stack        Input      Action
+0            a c d $    shift a
+0 a 1        c d $      shift c
+0 a 1 c 3    d $        reduce A -> c
+0 a 1 A      d $        shift d
+0 a 1 A d    $          reduce S -> a A d
+0 S          $          accept

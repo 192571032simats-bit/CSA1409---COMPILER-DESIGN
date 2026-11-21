@@ -1,0 +1,12 @@
+Q5: Panic-mode recovery trace
+==============================
+
+Input: id + * id
+Stack                            Input              Action
+$E                               id + * id$         parse id
+$E +                             * id$              panic: discard *
+$E + id                          id$               recover and continue
+$E                               $                 accept
+
+Synchronizing tokens: +, ), $, and id after recovery.
+This strategy prevents cascading errors by skipping invalid tokens until a safe point.

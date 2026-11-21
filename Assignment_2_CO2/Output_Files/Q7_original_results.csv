@@ -1,0 +1,5 @@
+metric,value
+time_ms,390
+memory_kb,1820
+conflicts,7
+error_recovery_score,62

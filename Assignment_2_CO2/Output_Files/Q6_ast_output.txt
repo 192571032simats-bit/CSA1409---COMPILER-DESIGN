@@ -1,0 +1,3 @@
+Q6 AST output
+==============
+(PLUS (NUM 5) (TIMES (NUM 3) (NUM 2)))

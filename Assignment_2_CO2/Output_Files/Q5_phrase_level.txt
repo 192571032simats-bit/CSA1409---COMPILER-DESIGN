@@ -1,0 +1,9 @@
+Q5: Phrase-level recovery
+=========================
+
+Original input: id + * id
+Recovery strategy: insert missing operand before *
+Repaired string: id + id * id
+
+The recovery is phrase-level because a missing operand is inserted locally without discarding useful input.
+This keeps the parse tree meaningful and avoids unnecessary rollback.

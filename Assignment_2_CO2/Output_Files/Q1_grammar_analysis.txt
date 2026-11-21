@@ -1,0 +1,50 @@
+Q1: CFG, terminals, non-terminals, productions, ambiguity and repairs
+=======================================================================
+
+Grammar G1:
+E -> E + E | E * E | id
+
+Terminals: {id, +, *}
+Non-terminals: {E}
+Productions: 3 alternatives for E
+
+Leftmost derivation for id + id * id:
+E => E + E => id + E => id + E * E => id + id * id
+
+Rightmost derivation for id + id * id:
+E => E + E => E + E * E => E + E * id => E + id * id => id + id * id
+
+Ambiguous parse tree 1:
+E
+|- E + E
+|  |- id
+|  \- E * E
+|      |- id
+|      \- id
+
+Ambiguous parse tree 2:
+E
+|- E * E
+|  |- E + E
+|  |  |- id
+|  |  \- id
+|  \- id
+
+Issue: same input has two parse trees => grammar is ambiguous.
+
+Repair to remove ambiguity:
+E -> E + T | T
+T -> T * F | F
+F -> id
+
+This makes precedence explicit:
+- * binds tighter than +
+- + and * are left associative
+
+Parse tree versus AST decision:
+- Parse tree preserves grammar structure and derivation order.
+- AST preserves semantic structure and is preferred for later phases such as type checking and code generation.
+- Choice: use AST for implementation, parse tree for explanatory proof.
+
+Conclusion:
+Ambiguity is removed by separating precedence levels and by explicitly encoding associativity.

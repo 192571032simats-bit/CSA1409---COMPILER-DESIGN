@@ -1,0 +1,26 @@
+Q3: Operator-precedence relation table
+=======================================
+
+For operators +, *, and parentheses:
+
+Operator     Relation            Explanation
+-----------------------------------------------------
+(            less-than           opening parenthesis has highest precedence
+*            greater-than        * has higher precedence than +
++            less-than           + binds weaker than *
+)            greater-than        closing parenthesis ends grouped expression
+
+Complete precedence table:
+
+    +    *    (    )    id
++   <    >    <    >    <
+*   >    >    <    >    <
+(   <    <    <    =    <
+)   >    >    >    >    error
+id  >    >    error  >    error
+
+Two precedence-based parses:
+1. id + id * id => id + (id * id)
+2. id * id + id => (id * id) + id
+
+The precedence relation table determines whether to shift or reduce at each operator.

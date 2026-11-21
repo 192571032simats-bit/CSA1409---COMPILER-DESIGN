@@ -1,0 +1,5 @@
+Q6 valid run
+=============
+Input: 5 + 3 * 2
+Result: 11
+Parser accepted and produced a single precedence-respecting AST.

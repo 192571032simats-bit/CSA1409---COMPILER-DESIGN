@@ -1,0 +1,5 @@
+Q6 invalid run
+===============
+Input: 5 + * 2
+Result: syntax error
+Recovery suggestion: insert a missing operand before *

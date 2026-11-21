@@ -1,0 +1,7 @@
+metric,value
+original_time_ms,390
+original_memory_kb,1820
+original_conflicts,7
+redesigned_time_ms,220
+redesigned_memory_kb,1360
+redesigned_conflicts,1

@@ -1,0 +1,66 @@
+Q2: Left recursion, left factoring, FIRST/FOLLOW and recursive descent
+=====================================================================
+
+Original grammar fragment:
+E -> E + T | T
+T -> T * F | F
+F -> id | (E)
+
+Step 1: left-recursion elimination (for top-down parsers)
+E -> T E'
+E' -> + T E' | eps
+T -> F T'
+T' -> * F T' | eps
+F -> id | (E)
+
+Step 2: left factoring
+The grammar is already left-factored after elimination.
+
+FIRST sets:
+FIRST(E) = {id, (}
+FIRST(E') = {+, eps}
+FIRST(T) = {id, (}
+FIRST(T') = {*, eps}
+FIRST(F) = {id, (}
+
+FOLLOW sets:
+FOLLOW(E) = {$, )}
+FOLLOW(E') = {$, )}
+FOLLOW(T) = {+, ), $}
+FOLLOW(T') = {+, ), $}
+FOLLOW(F) = {*, +, ), $}
+
+Recursive-descent pseudocode:
+parse_E():
+    parse_T()
+    while lookahead == '+':
+        match('+')
+        parse_T()
+
+parse_T():
+    parse_F()
+    while lookahead == '*':
+        match('*')
+        parse_F()
+
+parse_F():
+    if lookahead == 'id': match('id')
+    elif lookahead == '(':
+        match('(')
+        parse_E()
+        match(')')
+    else: error('expected id or (')
+
+Call trace for input: id + id * id
+----------------------------------
+parse_E -> parse_T -> parse_F -> match id
+parse_E sees + -> match +
+parse_T -> parse_F -> match id
+parse_T sees * -> match *
+parse_F -> match id
+accept
+
+Invalid input detection:
+Input: id + * id
+Error occurs when parse_T expects an operand after + and sees *.
+Exact detection point: before consuming *, the parser has a valid prefix id + and the next token * cannot start an operand.

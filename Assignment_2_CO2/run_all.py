@@ -1,4 +1,4 @@
-"""Run the full Assignment 2 scenario-based parser validation suite."""
+"""Run the full Assignment 2 validation suite for all Q1-Q7 tasks."""
 
 import subprocess
 import sys
@@ -6,11 +6,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SCRIPTS = [
-    ROOT / 'Source_Code' / 'Q1' / 'll1_conflict_demo.py',
-    ROOT / 'Source_Code' / 'Q2' / 'parse_tree_demo.py',
-    ROOT / 'Source_Code' / 'Q3' / 'error_handling_demo.py',
-    ROOT / 'Source_Code' / 'Q4' / 'dangling_else_demo.py',
-    ROOT / 'Source_Code' / 'Q5' / 'operator_precedence_demo.py',
+    ROOT / 'Source_Code' / 'Q1' / 'cfg_analysis.py',
+    ROOT / 'Source_Code' / 'Q2' / 'recursive_descent_ll1.py',
+    ROOT / 'Source_Code' / 'Q3' / 'shift_reduce_precedence.py',
+    ROOT / 'Source_Code' / 'Q4' / 'lr_slr_demo.py',
+    ROOT / 'Source_Code' / 'Q5' / 'error_recovery_demo.py',
+    ROOT / 'Source_Code' / 'Q6' / 'yacc_demo.py',
+    ROOT / 'Source_Code' / 'Q7' / 'redesign_analysis.py',
 ]
 
 for script in SCRIPTS:
@@ -23,4 +25,4 @@ for script in SCRIPTS:
     if result.returncode != 0:
         raise SystemExit(result.returncode)
 
-print('All Assignment 2 validation scripts completed successfully.')
+print('All Assignment 2 validation scripts were executed. Q1-Q5 and Q7 generated usable evidence; Q6 remains partially verified because the installed Bison/Flex toolchain in this environment has a path-related compile issue.')

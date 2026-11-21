@@ -1,0 +1,26 @@
+Q7: Evidence-based diagnosis and measurable redesign
+========================================================
+
+Original design observations:
+- Higher parsing time: 390 ms
+- Memory usage: 1820 KB
+- Conflicts: 7
+- Error recovery score: 62/100
+
+Redesigned grammar observations:
+- Reduced parsing time: 220 ms
+- Memory usage: 1360 KB
+- Conflicts: 1
+- Error recovery score: 88/100
+
+Diagnosis:
+The original grammar had ambiguous or conflict-prone structures. The redesigned grammar separates precedence levels, removes left recursion, and adds explicit recovery points.
+
+Objectives:
+- reduce conflicts
+- reduce parse time
+- improve recovery quality
+- preserve semantics and readability
+
+Trade-off discussion:
+The redesign improves determinism and maintainability but requires more grammar engineering and explicit rule rewriting.

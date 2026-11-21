@@ -1,0 +1,40 @@
+Q2: LL(1) table and stack trace
+=================================
+
+Grammar after rewrite:
+E -> T E'
+E' -> + T E' | eps
+T -> F T'
+T' -> * F T' | eps
+F -> id | (E)
+
+LL(1) predictive table (selected entries):
+M[E, id] = E -> T E'
+M[E, (] = E -> T E'
+M[E', +] = E' -> + T E'
+M[E', )] = E' -> eps
+M[E', $] = E' -> eps
+M[T, id] = T -> F T'
+M[T, (] = T -> F T'
+M[T', *] = T' -> * F T'
+M[T', +] = T' -> eps
+M[T', )] = T' -> eps
+M[T', $] = T' -> eps
+M[F, id] = F -> id
+M[F, (] = F -> (E)
+
+Stack-based parse for id + id * id$
+------------------------------------
+Stack                Input                     Action
+$E                   id + id * id$            E -> T E'
+$E'T                 id + id * id$            T -> F T'
+$E'T'F               id + id * id$            F -> id
+$E'T'                + id * id$               match id
+$E'                  + id * id$               E' -> + T E'
+$E'T                 id * id$                 T -> F T'
+$E'T'F               id * id$                 F -> id
+$E'T'                * id$                    T' -> * F T'
+$E'T'F               id$                      F -> id
+$E'T'                $                        T' -> eps
+$E'                  $                        E' -> eps
+$                    $                        ACCEPT
